@@ -46,7 +46,13 @@ app.post('/login',function(req,res){
  	}
 });
 
+app.post('/clockify', (req, res) =>{
+	const currentHours=6;
+	console.log('adding more '+req.body.hoursDispensed+' hours of work');
+        let result = currentHours + parseInt(req.body.hoursDispensed,10);
+	res.json({totalHoursDispensed: result})
+});
+
 app.listen(8000,function(){
  console.log("server is running")
 });
-
